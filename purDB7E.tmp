@@ -1,0 +1,110 @@
+[gd_scene load_steps=8 format=3 uid="uid://80ij5vnhkgl3"]
+
+[ext_resource type="Script" path="res://purplemob.gd" id="1_maf0k"]
+[ext_resource type="Texture2D" uid="uid://cj4g4h1kp0inu" path="res://animations/enemies/purple_mob/enemy_idle-Sheet.png" id="2_dngh0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a1y58"]
+size = Vector2(62.6667, 33.2083)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kfmky"]
+size = Vector2(27, 22.0625)
+
+[sub_resource type="Animation" id="Animation_5qfvb"]
+resource_name = "purplemob_idle"
+loop_mode = 1
+step = 0.333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.134547, 0.306952, 0.409232, 0.50529, 0.661215, 0.817052, 0.949277),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 1, 3, 3, 4, 5, 5]
+}
+
+[sub_resource type="Animation" id="Animation_fopmg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v1nvr"]
+_data = {
+"RESET": SubResource("Animation_fopmg"),
+"purplemob_idle": SubResource("Animation_5qfvb")
+}
+
+[node name="purplemob" type="CharacterBody2D"]
+position = Vector2(2, -81)
+scale = Vector2(1.4021, 1.76143)
+collision_layer = 2
+collision_mask = 13
+script = ExtResource("1_maf0k")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 27)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_dngh0")
+hframes = 6
+region_enabled = true
+region_rect = Rect2(0, 0, 287, 48)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(3, 1)
+collision_layer = 2
+collision_mask = 4
+
+[node name="HurtboxEnemy" type="CollisionShape2D" parent="Area2D" groups=["hurtbox"]]
+position = Vector2(-3.5, 32.4531)
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_a1y58")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 34)
+shape = SubResource("RectangleShape2D_kfmky")
+debug_color = Color(0.734291, 0.387965, 0.692714, 0.42)
+
+[node name="PurpleMob_AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_v1nvr")
+}
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

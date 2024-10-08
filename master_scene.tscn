@@ -1,0 +1,100 @@
+[gd_scene load_steps=9 format=3 uid="uid://dyjbml4hmqtxu"]
+
+[ext_resource type="Script" path="res://master_scene.gd" id="1_1ltg8"]
+[ext_resource type="PackedScene" uid="uid://bxioim6taltal" path="res://player.tscn" id="1_8kqm7"]
+[ext_resource type="PackedScene" uid="uid://6yd7kycqs4t4" path="res://mobtest.tscn" id="2_1yrgr"]
+[ext_resource type="FontFile" uid="uid://be2nu5as08d7p" path="res://UI/saiba-45/SAIBA-45.ttf" id="3_nks1l"]
+[ext_resource type="PackedScene" uid="uid://80ij5vnhkgl3" path="res://purple_enemy.tscn" id="5_tdaby"]
+[ext_resource type="PackedScene" uid="uid://lsv6ntilm41i" path="res://terrain.tscn" id="5_xufd1"]
+[ext_resource type="Script" path="res://pause_screen.gd" id="6_hq8mc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pbuto"]
+
+[node name="Node" type="Node2D"]
+script = ExtResource("1_1ltg8")
+
+[node name="Player" parent="." instance=ExtResource("1_8kqm7")]
+position = Vector2(90, 284)
+floor_stop_on_slope = true
+floor_constant_speed = true
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="mobtest" parent="." instance=ExtResource("2_1yrgr")]
+position = Vector2(281, 538)
+collision_mask = 9
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.941
+
+[node name="Node2D" parent="." instance=ExtResource("5_xufd1")]
+collision_visibility_mode = 0
+
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="PurpleMob" parent="." instance=ExtResource("5_tdaby")]
+position = Vector2(538, 377)
+
+[node name="PurpleMob2" parent="." instance=ExtResource("5_tdaby")]
+position = Vector2(716, 372)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseScreen" type="Control" parent="CanvasLayer"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -116.0
+offset_top = -255.0
+offset_right = -76.0
+offset_bottom = -215.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("6_hq8mc")
+
+[node name="GamePaused" type="Label" parent="CanvasLayer/PauseScreen"]
+z_index = 1
+layout_mode = 0
+offset_left = -97.0
+offset_top = 272.0
+offset_right = 303.0
+offset_bottom = 303.0
+scale = Vector2(1, 0.94284)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.584741, 0.825189, 0.583274, 1)
+theme_override_constants/shadow_offset_x = 12
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("3_nks1l")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_pbuto")
+text = "Game Paused -
+ press ESC again to unpause
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/PauseScreen/GamePaused"]
+layout_mode = 0
+offset_left = -139.0
+offset_top = -285.308
+offset_right = -99.0
+offset_bottom = -245.308
+scale = Vector2(18.7402, 15.6444)
+
+[node name="PauseQuitGame" type="Button" parent="CanvasLayer/PauseScreen"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Quit to Desktop"
+
+[connection signal="enemy_died" from="mobtest" to="." method="_on_mobtest_enemy_died"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]

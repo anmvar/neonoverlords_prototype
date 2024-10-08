@@ -1,0 +1,329 @@
+[gd_scene load_steps=18 format=3 uid="uid://bxioim6taltal"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_up5pe"]
+[ext_resource type="Texture2D" uid="uid://b02i2wthqq4l4" path="res://animations/Irabel_attack_modif-Sheet.png" id="2_svoo7"]
+[ext_resource type="Texture2D" uid="uid://dbwvunhwrun0u" path="res://animations/irabel_attack_v2.png" id="3_lykwk"]
+[ext_resource type="Texture2D" uid="uid://3aglhtdu6o37" path="res://animations/Irabel_sidebounce_2-Sheet.png" id="3_mo3oy"]
+[ext_resource type="Texture2D" uid="uid://detat1ygusfj8" path="res://animations/Irabel_run-Sheet.png" id="4_abk6m"]
+[ext_resource type="Texture2D" uid="uid://bhw3j10xdbb6n" path="res://animations/Irabel_jump-Sheet.png" id="6_6pi0e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ghsao"]
+size = Vector2(50.9387, 46.2609)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8v4ok"]
+size = Vector2(33.4888, 46.8877)
+
+[sub_resource type="Animation" id="Animation_iu72p"]
+resource_name = "Irabel_basicattack"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Irabel_Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-2.23517e-08, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 1, 2, 2, 3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Irabel_Sprite2D/Irabelattack_Area2D/Irabelattack_CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Irabel_Sprite2D:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_lykwk")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Irabel_Sprite2D:hframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+
+[sub_resource type="Animation" id="Animation_8ite4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Irabel_Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Irabel_Sprite2D/Irabelattack_Area2D/Irabelattack_CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Irabel_Sprite2D:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_svoo7")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Irabel_Sprite2D:hframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Irabel_Sprite2D:skew")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_r3yek"]
+resource_name = "animatedspirte_bounce"
+
+[sub_resource type="Animation" id="Animation_i4kgs"]
+resource_name = "attack_test"
+loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_bx3up"]
+resource_name = "irabel_idle"
+length = 0.333344
+loop_mode = 2
+step = 0.111111
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Irabel_Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.111111, 0.222222, 0.333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 2, 3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Irabel_Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_mo3oy")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Irabel_Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+
+[sub_resource type="Animation" id="Animation_jmyvx"]
+resource_name = "irabel_run"
+length = 1.00002
+loop_mode = 1
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Irabel_Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_abk6m")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Irabel_Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.108138, 0.24022, 0.359, 0.493742, 0.607201, 0.703909, 0.788622, 0.887314),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 2, 3, 1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Irabel_Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0.812252),
+"update": 1,
+"values": [6]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Irabel_Sprite2D:skew")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.0001, 0.25, 0.53, 1),
+"transitions": PackedFloat32Array(1, 1, 2.14355, 1, 0.482968),
+"update": 0,
+"values": [0.0, 0.0, -0.015708, 0.0191986, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_n3tkn"]
+resource_name = "irabel_jump"
+length = 0.7
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Irabel_Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_6pi0e")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Irabel_Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Irabel_Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0404654, 0.189604, 0.258114, 0.358175),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yemg3"]
+_data = {
+"Irabel_basicattack": SubResource("Animation_iu72p"),
+"RESET": SubResource("Animation_8ite4"),
+"animatedspirte_bounce": SubResource("Animation_r3yek"),
+"attack_test": SubResource("Animation_i4kgs"),
+"irabel_idle": SubResource("Animation_bx3up"),
+"irabel_jump": SubResource("Animation_n3tkn"),
+"irabel_run": SubResource("Animation_jmyvx")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q0w7n"]
+size = Vector2(34, 43.5)
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(1, -35)
+collision_mask = 10
+slide_on_ceiling = false
+floor_stop_on_slope = false
+platform_floor_layers = 4294967048
+script = ExtResource("1_up5pe")
+
+[node name="Irabel_Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.53125, 1.72917)
+texture = ExtResource("2_svoo7")
+offset = Vector2(0, -0.578312)
+hframes = 8
+region_rect = Rect2(0, 0, 896, 48)
+
+[node name="Irabelattack_Area2D" type="Area2D" parent="Irabel_Sprite2D" groups=["hurtbox"]]
+collision_layer = 4
+collision_mask = 2
+
+[node name="Irabelattack_CollisionShape2D" type="CollisionShape2D" parent="Irabel_Sprite2D/Irabelattack_Area2D"]
+position = Vector2(3.26531, 1.34458)
+scale = Vector2(0.988967, 0.808196)
+shape = SubResource("RectangleShape2D_ghsao")
+disabled = true
+debug_color = Color(0.904642, 0.245813, 0.467424, 0.42)
+
+[node name="Irabel_CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 7)
+scale = Vector2(1.22429, 0.95974)
+shape = SubResource("RectangleShape2D_8v4ok")
+
+[node name="Irabel_AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_yemg3")
+}
+
+[node name="IrabelArea" type="Area2D" parent="."]
+
+[node name="Irabel_Hurtbox" type="CollisionShape2D" parent="IrabelArea"]
+position = Vector2(14, 14)
+shape = SubResource("RectangleShape2D_q0w7n")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=4 uid="uid://lsv6ntilm41i"]
 
-[ext_resource type="Texture2D" uid="uid://dtd2iurhtqf8b" path="res://assetts/tileset base-Sheet.svg" id="1_heeia"]
+[ext_resource type="Texture2D" uid="uid://dtd2iurhtqf8b" path="res://assetts/levelimages/tileset base-Sheet.svg" id="1_heeia"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_j8c2f"]
 

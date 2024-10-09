@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ceq5b8ye7ggwt"
-path="res://.godot/imported/enemy_walk-Sheet.png-253a2d4781e5c714b6e145e9e5feb186.ctex"
+uid="uid://dhlbae383v5m3"
+path="res://.godot/imported/enemy_attack-Sheet.png-746889ae290e137eb50fe7ac503ba08e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://animations/enemies/purple_mob/enemy_walk-Sheet.png"
-dest_files=["res://.godot/imported/enemy_walk-Sheet.png-253a2d4781e5c714b6e145e9e5feb186.ctex"]
+source_file="res://assetts/animations/enemy_attack-Sheet.png"
+dest_files=["res://.godot/imported/enemy_attack-Sheet.png-746889ae290e137eb50fe7ac503ba08e.ctex"]
 
 [params]
 

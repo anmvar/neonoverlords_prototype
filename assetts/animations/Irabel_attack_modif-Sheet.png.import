@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://detat1ygusfj8"
-path="res://.godot/imported/Irabel_run-Sheet.png-8fe4fdf685dcce2825dd7ce73df3858d.ctex"
+uid="uid://b02i2wthqq4l4"
+path="res://.godot/imported/Irabel_attack_modif-Sheet.png-45a667e09026e29472ba0c9f43140431.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://animations/Irabel_run-Sheet.png"
-dest_files=["res://.godot/imported/Irabel_run-Sheet.png-8fe4fdf685dcce2825dd7ce73df3858d.ctex"]
+source_file="res://assetts/animations/Irabel_attack_modif-Sheet.png"
+dest_files=["res://.godot/imported/Irabel_attack_modif-Sheet.png-45a667e09026e29472ba0c9f43140431.ctex"]
 
 [params]
 

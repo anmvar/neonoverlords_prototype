@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bor5asq6ljn5g"
-path="res://.godot/imported/enemy_attack-Sheet.png-09e76d553f16a1c09bca2a2b87fb0c9b.ctex"
+uid="uid://detat1ygusfj8"
+path="res://.godot/imported/Irabel_run-Sheet.png-b46c331204f3af06917cd9e79877e29b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://animations/enemies/purple_mob/enemy_attack-Sheet.png"
-dest_files=["res://.godot/imported/enemy_attack-Sheet.png-09e76d553f16a1c09bca2a2b87fb0c9b.ctex"]
+source_file="res://assetts/animations/Irabel_run-Sheet.png"
+dest_files=["res://.godot/imported/Irabel_run-Sheet.png-b46c331204f3af06917cd9e79877e29b.ctex"]
 
 [params]
 

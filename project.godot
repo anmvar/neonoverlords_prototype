@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Entregable_Neon"
-run/main_scene="res://UI/titlescreen.tscn"
+run/main_scene="res://assetts/UI/titlescreen.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+enemy_manager="*res://Scripts/enemy_manager.gd"
 
 [display]
 
@@ -23,7 +27,8 @@ window/size/viewport_height=500
 [file_customization]
 
 folder_colors={
-"res://animations/": "purple"
+"res://Scripts/": "gray",
+"res://assetts/animations/": "purple"
 }
 
 [global_group]

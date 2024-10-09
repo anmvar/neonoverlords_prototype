@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://mu7jw16258m5"]
 
-[ext_resource type="Script" path="res://UI/titlescreen.gd" id="1_briue"]
-[ext_resource type="FontFile" uid="uid://be2nu5as08d7p" path="res://UI/saiba-45/SAIBA-45.ttf" id="2_ohu8g"]
+[ext_resource type="Script" path="res://assetts/UI/titlescreen.gd" id="1_briue"]
+[ext_resource type="FontFile" uid="uid://be2nu5as08d7p" path="res://assetts/UI/saiba-45/SAIBA-45.ttf" id="2_ohu8g"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_briue")

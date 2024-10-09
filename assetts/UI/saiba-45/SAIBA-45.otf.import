@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://b2bh5t5qdn3tc"
-path="res://.godot/imported/SAIBA-45.otf-7cbf3511de3b4fbe0dbf161b8951eff6.fontdata"
+path="res://.godot/imported/SAIBA-45.otf-8cbfa0804ff2dd7876d6f865ac9bf51e.fontdata"
 
 [deps]
 
-source_file="res://UI/saiba-45/SAIBA-45.otf"
-dest_files=["res://.godot/imported/SAIBA-45.otf-7cbf3511de3b4fbe0dbf161b8951eff6.fontdata"]
+source_file="res://assetts/UI/saiba-45/SAIBA-45.otf"
+dest_files=["res://.godot/imported/SAIBA-45.otf-8cbfa0804ff2dd7876d6f865ac9bf51e.fontdata"]
 
 [params]
 

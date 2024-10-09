@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kkmv75k2kqx8"
-path="res://.godot/imported/irahor.png-ad0cb356d125374beeaf673b9d794697.ctex"
+uid="uid://dqepyeefbic88"
+path="res://.godot/imported/Irabel_attackv2-Sheet.png-fe2e51c86032b1387d3dd0997c6c52c8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://animations/irahor.png"
-dest_files=["res://.godot/imported/irahor.png-ad0cb356d125374beeaf673b9d794697.ctex"]
+source_file="res://assetts/animations/Irabel_attackv2-Sheet.png"
+dest_files=["res://.godot/imported/Irabel_attackv2-Sheet.png-fe2e51c86032b1387d3dd0997c6c52c8.ctex"]
 
 [params]
 

@@ -1,9 +1,9 @@
 [gd_scene load_steps=13 format=3 uid="uid://80ij5vnhkgl3"]
 
-[ext_resource type="Script" path="res://purplemob.gd" id="1_maf0k"]
-[ext_resource type="Texture2D" uid="uid://cj4g4h1kp0inu" path="res://animations/enemies/purple_mob/enemy_idle-Sheet.png" id="2_dngh0"]
-[ext_resource type="Texture2D" uid="uid://ceq5b8ye7ggwt" path="res://animations/enemies/purple_mob/enemy_walk-Sheet.png" id="3_d0lib"]
-[ext_resource type="Texture2D" uid="uid://bor5asq6ljn5g" path="res://animations/enemies/purple_mob/enemy_attack-Sheet.png" id="4_lfs1x"]
+[ext_resource type="Script" path="res://Scripts/purplemob.gd" id="1_maf0k"]
+[ext_resource type="Texture2D" uid="uid://cj4g4h1kp0inu" path="res://assetts/animations/enemies/purple_mob/enemy_idle-Sheet.png" id="2_dngh0"]
+[ext_resource type="Texture2D" uid="uid://ceq5b8ye7ggwt" path="res://assetts/animations/enemies/purple_mob/enemy_walk-Sheet.png" id="3_d0lib"]
+[ext_resource type="Texture2D" uid="uid://bor5asq6ljn5g" path="res://assetts/animations/enemies/purple_mob/enemy_attack-Sheet.png" id="4_lfs1x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a1y58"]
 size = Vector2(40.8911, 23.3603)
@@ -233,6 +233,7 @@ scale = Vector2(8.46221, -2.72113)
 shape = SubResource("CircleShape2D_5gtbu")
 debug_color = Color(0.911927, 0.284063, 0.204939, 0.42)
 
+[connection signal="enemy_died" from="." to="." method="_on_enemy_died"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="timeout" from="MoveTimer" to="." method="_on_move_timer_timeout"]
 [connection signal="area_entered" from="AggroArea" to="." method="_on_aggro_area_area_entered"]

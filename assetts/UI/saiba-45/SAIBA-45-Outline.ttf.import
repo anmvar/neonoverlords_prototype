@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://cjsyra3rjx1p8"
-path="res://.godot/imported/SAIBA-45-Outline.otf-60715d3a41595449af69e74be58df778.fontdata"
+uid="uid://fjn756y5ooni"
+path="res://.godot/imported/SAIBA-45-Outline.ttf-c7619028493508f0429c8e32cfc2e84c.fontdata"
 
 [deps]
 
-source_file="res://UI/saiba-45/SAIBA-45-Outline.otf"
-dest_files=["res://.godot/imported/SAIBA-45-Outline.otf-60715d3a41595449af69e74be58df778.fontdata"]
+source_file="res://assetts/UI/saiba-45/SAIBA-45-Outline.ttf"
+dest_files=["res://.godot/imported/SAIBA-45-Outline.ttf-c7619028493508f0429c8e32cfc2e84c.fontdata"]
 
 [params]
 

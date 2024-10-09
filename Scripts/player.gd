@@ -22,8 +22,6 @@ func _ready():
 	#$Irabel_AnimationPlayer.play("Irabel_basicattack")
 	pass
 
-
-
 func _process(_delta):
 	if Input.is_action_just_pressed("attack_basic"):
 		$Irabel_AnimationPlayer.play("Irabel_basicattack")
@@ -31,13 +29,6 @@ func _process(_delta):
 		print("attack")
 	if not $Irabel_AnimationPlayer.is_playing():
 		$Irabel_AnimationPlayer.play("irabel_idle")
-	
-	#var irabel_current_animation = $Irabel_AnimationPlayer.get_current_animation()
-	#if irabel_current_animation == "Irabel_basicattack":
-		#$Irabel_AttackSound.play()
-	
-		
-
 
 func _physics_process(delta):
 	velocity.x = 0
@@ -46,7 +37,6 @@ func _physics_process(delta):
 		
 		velocity.y +=  delta * gravity
 		
-
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		$Irabel_AnimationPlayer.play("irabel_jump")
@@ -72,8 +62,6 @@ func _physics_process(delta):
 			
 			$Irabel_AnimationPlayer.play("irabel_jump")
 
-
-		
 	move_and_slide()
 
 func start(pos):
@@ -81,12 +69,10 @@ func start(pos):
 	show()
 	$CollisionShape2D.disabled = false
 
-
 func _on_body_entered(body):
 	hide()
 	$CollisionShape2D.set_deferred("disabled",true)
 	pass
-
 
 func _on_hit_player() -> void:
 	pass # Replace with function body.

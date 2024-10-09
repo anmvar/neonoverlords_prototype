@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cj4g4h1kp0inu"
-path="res://.godot/imported/enemy_idle-Sheet.png-7c4884947fbfecf2d2de7bd107e93b7d.ctex"
+uid="uid://ceq5b8ye7ggwt"
+path="res://.godot/imported/enemy_walk-Sheet.png-80384a5f79c95ecaf6fe5f50f0bbfabb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://animations/enemies/purple_mob/enemy_idle-Sheet.png"
-dest_files=["res://.godot/imported/enemy_idle-Sheet.png-7c4884947fbfecf2d2de7bd107e93b7d.ctex"]
+source_file="res://assetts/animations/enemies/purple_mob/enemy_walk-Sheet.png"
+dest_files=["res://.godot/imported/enemy_walk-Sheet.png-80384a5f79c95ecaf6fe5f50f0bbfabb.ctex"]
 
 [params]
 

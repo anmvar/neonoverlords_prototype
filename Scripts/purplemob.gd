@@ -1,6 +1,6 @@
 extends CharacterBody2D
 #signal hit_mob
-signal enemy_died 
+signal enemy_died(position)
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var mob_sprite_2d = $PurpleMob_Sprite2D
 @onready var mob_move_timer = $MoveTimer
@@ -13,21 +13,18 @@ var direction = 1.0  # Current moving direction  # Timer to track movement time
 var start_position: Vector2  # The starting position of the enemy
 var leap_speed = 400
 var mob_is_attacking = false
-
+var enemy_dead = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	start_position = position 
 	if not $PurpleMob_AnimationPlayer.is_playing():
 		$PurpleMob_AnimationPlayer.play("purplemob_idle")
 	
-	
 	aggro_area.connect("area_entered", Callable(self, "_on_aggro_area_entered"))
 	start_direction_change_timer()
 	
 	pass 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-
 func _physics_process(delta):
 	if mob_is_attacking:
 		# Move towards the player during the attack
@@ -43,11 +40,9 @@ func _physics_process(delta):
 		else:
 			velocity.y = 0 
 
-			
 		mob_sprite_2d.flip_h = (direction > 0)
 
 		velocity.x = direction * speed 
-	
 	
 	move_and_slide()
 	pass
@@ -64,12 +59,15 @@ func _on_move_timer_timeout() -> void:
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	if area.is_in_group("hurtbox"):
-		print("Enemy died at position: ", position) 
+	if area.is_in_group("hurtbox") and not enemy_dead: 
+		enemy_dead = true
+		emit_signal("enemy_died",position)
+		enemy_manager.increase_kill_count() 
 		queue_free()
 	pass # Replace with function body.
 	
 func _on_enemy_died() -> void:
+	
 	pass # Replace with function body.
 
 

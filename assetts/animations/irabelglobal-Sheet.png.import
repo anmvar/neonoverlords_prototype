@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhw3j10xdbb6n"
-path="res://.godot/imported/Irabel_jump-Sheet.png-2ac708ef05fbd1316f65ff68bd2365d4.ctex"
+uid="uid://c6tcha4tra65"
+path="res://.godot/imported/irabelglobal-Sheet.png-3d73d2ce0abe30a9f2b02a802aceb49a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://animations/Irabel_jump-Sheet.png"
-dest_files=["res://.godot/imported/Irabel_jump-Sheet.png-2ac708ef05fbd1316f65ff68bd2365d4.ctex"]
+source_file="res://assetts/animations/irabelglobal-Sheet.png"
+dest_files=["res://.godot/imported/irabelglobal-Sheet.png-3d73d2ce0abe30a9f2b02a802aceb49a.ctex"]
 
 [params]
 

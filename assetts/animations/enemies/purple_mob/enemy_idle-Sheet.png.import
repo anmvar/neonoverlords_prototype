@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtd2iurhtqf8b"
-path="res://.godot/imported/tileset base-Sheet.svg-48c652e64f61b11824346549457a9e8c.ctex"
+uid="uid://cj4g4h1kp0inu"
+path="res://.godot/imported/enemy_idle-Sheet.png-5bc2cdb3fe7447c03c2c7847c2228f5f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assetts/tileset base-Sheet.svg"
-dest_files=["res://.godot/imported/tileset base-Sheet.svg-48c652e64f61b11824346549457a9e8c.ctex"]
+source_file="res://assetts/animations/enemies/purple_mob/enemy_idle-Sheet.png"
+dest_files=["res://.godot/imported/enemy_idle-Sheet.png-5bc2cdb3fe7447c03c2c7847c2228f5f.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

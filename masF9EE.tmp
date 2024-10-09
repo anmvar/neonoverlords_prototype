@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dyjbml4hmqtxu"]
+[gd_scene load_steps=9 format=3 uid="uid://dyjbml4hmqtxu"]
 
 [ext_resource type="Script" path="res://Scripts/master_scene.gd" id="1_1ltg8"]
 [ext_resource type="PackedScene" uid="uid://bxioim6taltal" path="res://player.tscn" id="1_8kqm7"]
+[ext_resource type="PackedScene" uid="uid://6yd7kycqs4t4" path="res://mobtest.tscn" id="2_1yrgr"]
 [ext_resource type="FontFile" uid="uid://be2nu5as08d7p" path="res://assetts/UI/saiba-45/SAIBA-45.ttf" id="3_nks1l"]
 [ext_resource type="PackedScene" uid="uid://80ij5vnhkgl3" path="res://purple_enemy.tscn" id="5_tdaby"]
 [ext_resource type="PackedScene" uid="uid://lsv6ntilm41i" path="res://terrain.tscn" id="5_xufd1"]
@@ -19,6 +20,10 @@ floor_constant_speed = true
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
+[node name="mobtest" parent="." instance=ExtResource("2_1yrgr")]
+position = Vector2(281, 538)
+collision_mask = 9
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.941
 
@@ -30,7 +35,10 @@ wait_time = 2.0
 one_shot = true
 
 [node name="PurpleMob" parent="." instance=ExtResource("5_tdaby")]
-position = Vector2(572, 376)
+position = Vector2(538, 377)
+
+[node name="PurpleMob2" parent="." instance=ExtResource("5_tdaby")]
+position = Vector2(716, 372)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -103,5 +111,6 @@ theme_override_fonts/font = ExtResource("3_nks1l")
 theme_override_font_sizes/font_size = 24
 text = "Mobs Slain: "
 
+[connection signal="enemy_died" from="mobtest" to="." method="_on_mobtest_enemy_died"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]

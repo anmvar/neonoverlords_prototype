@@ -2,24 +2,21 @@ extends CharacterBody2D
 
 signal player_hit
 
+
 var screen_size
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var sprite_2d = $Irabel_Sprite2D
-
+var player_health = 3
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
 @export var sprite = Sprite2D
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
-	#$Irabel_AnimationPlayer.play("irabel_idle")
-	#$Irabel_AnimationPlayer.play("irabel_idle")
 	$Irabel_Sprite2D/JumpParticles.emitting = false
 	add_to_group("player")
-	#$Irabel_AnimationPlayer.play("Irabel_basicattack")
 	pass
 
 func _process(_delta):
@@ -74,5 +71,21 @@ func _on_body_entered(body):
 	$CollisionShape2D.set_deferred("disabled",true)
 	pass
 
-func _on_hit_player() -> void:
+func _on_player_hit() -> void:
+	
+	pass # Replace with function body.
+
+
+func _on_irabel_area_body_entered(body: CharacterBody2D) -> void:
+	
+	pass # Replace with function body.
+
+
+func _on_irabel_area_entered(area: Area2D) -> void:
+	print ("something entered irabel area")
+	if area.is_in_group("enemy_damage"):
+		player_health -= 1
+		print("current health: ", player_health)
+	if player_health <= 0:
+		print ("irabel dead")
 	pass # Replace with function body.

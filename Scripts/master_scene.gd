@@ -2,7 +2,6 @@ extends Node
 var enemy_scene = preload("res://purple_enemy.tscn")#.instantiate()  # Path to your enemy scene
 @onready var kill_count_label: Label = $CanvasLayer/Control/KillCountLabel
 
-
 func _ready():  
 	print("spawn on")
 	var timer = $Timer
@@ -43,4 +42,6 @@ func _on_kill_count_updated(count):
 func _on_start_timer_timeout() -> void:
 	pass # Replace with function body.
 	
-	
+
+func _on_quit_button_pressed() -> void:
+	pass # Replace with function body.

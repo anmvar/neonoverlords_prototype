@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://80ij5vnhkgl3"]
+[gd_scene load_steps=14 format=3 uid="uid://80ij5vnhkgl3"]
 
 [ext_resource type="Script" path="res://Scripts/purplemob.gd" id="1_maf0k"]
 [ext_resource type="Texture2D" uid="uid://cj4g4h1kp0inu" path="res://assetts/animations/enemies/purple_mob/enemy_idle-Sheet.png" id="2_dngh0"]
@@ -9,7 +9,7 @@
 size = Vector2(40.8911, 23.3603)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kfmky"]
-size = Vector2(20.6833, 12.7344)
+size = Vector2(25.8541, 17.6703)
 
 [sub_resource type="Animation" id="Animation_fopmg"]
 length = 0.001
@@ -48,6 +48,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [6]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Area2D2/Hitbox_PurpleMob:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_xsysy"]
@@ -88,6 +100,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Area2D2/Hitbox_PurpleMob:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.08, 0.81),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_5qfvb"]
@@ -183,6 +207,9 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_5gtbu"]
 radius = 6.18852
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m7xqn"]
+size = Vector2(45.4675, 20.0446)
+
 [node name="PurpleMob" type="CharacterBody2D"]
 position = Vector2(2, -81)
 scale = Vector2(1.4021, 1.76143)
@@ -204,13 +231,13 @@ collision_layer = 2
 collision_mask = 4
 metadata/_edit_lock_ = true
 
-[node name="HurtboxEnemy" type="CollisionShape2D" parent="Area2D" groups=["hurtbox"]]
-position = Vector2(-3.35661, 36.1461)
+[node name="Hurtbox_PurpleMob" type="CollisionShape2D" parent="Area2D" groups=["hurtbox"]]
+position = Vector2(-3, 35.3341)
 scale = Vector2(0.75, 0.75)
 shape = SubResource("RectangleShape2D_a1y58")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(-0.713216, 39.1727)
+[node name="PurpleMob_Collision" type="CollisionShape2D" parent="."]
+position = Vector2(-2.13965, 36.9018)
 shape = SubResource("RectangleShape2D_kfmky")
 debug_color = Color(0.734291, 0.387965, 0.692714, 0.42)
 
@@ -227,11 +254,22 @@ collision_mask = 9
 metadata/_edit_lock_ = true
 
 [node name="AggroCollision" type="CollisionShape2D" parent="AggroArea"]
-position = Vector2(-38.5137, 31.7923)
+position = Vector2(-52.0648, 31.7923)
 rotation = -0.00850553
 scale = Vector2(8.46221, -2.72113)
 shape = SubResource("CircleShape2D_5gtbu")
 debug_color = Color(0.911927, 0.284063, 0.204939, 0.42)
+
+[node name="Area2D2" type="Area2D" parent="." groups=["enemy_damage"]]
+position = Vector2(0.713216, 27.2506)
+scale = Vector2(0.75, 0.75)
+collision_layer = 2
+
+[node name="Hitbox_PurpleMob" type="CollisionShape2D" parent="Area2D2" groups=["enemy_damage"]]
+position = Vector2(-16.1662, 11.3544)
+scale = Vector2(1.33333, 1.33333)
+shape = SubResource("RectangleShape2D_m7xqn")
+debug_color = Color(0.880435, 0.2693, 0.526381, 0.42)
 
 [connection signal="enemy_died" from="." to="." method="_on_enemy_died"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

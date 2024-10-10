@@ -81,10 +81,15 @@ offset_right = -99.0
 offset_bottom = -245.308
 scale = Vector2(18.7402, 15.6444)
 
-[node name="PauseQuitGame" type="Button" parent="CanvasLayer/PauseScreen"]
+[node name="QuitButton" type="Button" parent="CanvasLayer/PauseScreen"]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 33.0
+offset_top = 329.0
+offset_right = 163.0
+offset_bottom = 360.0
+theme_override_colors/font_hover_pressed_color = Color(0.865481, 0.686824, 0.314595, 1)
+theme_override_fonts/font = ExtResource("3_nks1l")
+theme_override_font_sizes/font_size = 13
 text = "Quit to Desktop"
 
 [node name="Control" type="Control" parent="CanvasLayer"]
@@ -105,3 +110,5 @@ text = "Mobs Slain: "
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
+[connection signal="pressed" from="CanvasLayer/PauseScreen/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/PauseScreen/QuitButton" to="CanvasLayer/PauseScreen" method="_on_quit_button_pressed"]

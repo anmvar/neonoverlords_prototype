@@ -26,9 +26,8 @@ func toggle_pause():
 		game_paused = not game_paused
 		print("pause button was pressed")
 		print("game paused is: ", game_paused, " and tree pause is:", get_tree().paused)
-		
-	#if Input.is_action_just_pressed("pause_toggle") and game_paused == true:
-		#game_paused = not game_paused
-		#print("unpaused game")
-		#print("game paused is: ", game_paused)
-	pass
+
+
+func _on_quit_button_pressed() -> void:
+	get_tree().quit()
+	pass #

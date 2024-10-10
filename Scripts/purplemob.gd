@@ -15,6 +15,7 @@ var leap_speed = 400
 var mob_is_attacking = false
 var enemy_dead = false
 # Called when the node enters the scene tree for the first time.
+
 func _ready():
 	start_position = position 
 	if not $PurpleMob_AnimationPlayer.is_playing():

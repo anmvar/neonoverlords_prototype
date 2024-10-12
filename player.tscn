@@ -6,9 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://3aglhtdu6o37" path="res://assetts/animations/Irabel_sidebounce_2-Sheet.png" id="3_mo3oy"]
 [ext_resource type="Texture2D" uid="uid://detat1ygusfj8" path="res://assetts/animations/Irabel_run-Sheet.png" id="4_abk6m"]
 [ext_resource type="Texture2D" uid="uid://bhw3j10xdbb6n" path="res://assetts/animations/Irabel_jump-Sheet.png" id="6_6pi0e"]
-[ext_resource type="AudioStream" uid="uid://36gibywbi1t1" path="res://assetts/audio/hitHurt.wav" id="7_b6x2f"]
-[ext_resource type="AudioStream" uid="uid://dmon1a5jdyq6m" path="res://assetts/audio/jump.wav" id="8_m3nr8"]
-[ext_resource type="AudioStream" uid="uid://b2v0vsdsow8ko" path="res://assetts/audio/walk.wav" id="8_ywbg5"]
+[ext_resource type="AudioStream" uid="uid://36gibywbi1t1" path="res://assetts/audio/FX/hitHurt.wav" id="7_b6x2f"]
+[ext_resource type="AudioStream" uid="uid://dmon1a5jdyq6m" path="res://assetts/audio/FX/jump.wav" id="8_m3nr8"]
+[ext_resource type="AudioStream" uid="uid://b2v0vsdsow8ko" path="res://assetts/audio/FX/walk.wav" id="8_ywbg5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ghsao"]
 size = Vector2(50.9387, 46.2609)

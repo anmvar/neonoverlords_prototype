@@ -10,6 +10,7 @@ func _ready():
 	timer.start()  
 	print("Timer started:", timer.is_stopped()) 
 	enemy_manager.connect("kill_count_updated", Callable(self, "_on_kill_count_updated"))
+	$Player/Camera2D/MusicPlayer.play()
 	pass
 	
 func _process(float) -> void:

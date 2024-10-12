@@ -7,9 +7,13 @@ var screen_size
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var sprite_2d = $Irabel_Sprite2D
 var player_health = 3
+var player_is_invulnerable = false
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
+const KNOCKBACK_FORCE = 500
+const FLASH_TIME = 0.1  # Duration of flash
+const FLASH_COLOR = Color(1, 0, 0)  # Red color for flash
 
 @export var sprite = Sprite2D
 
@@ -84,8 +88,32 @@ func _on_irabel_area_body_entered(body: CharacterBody2D) -> void:
 func _on_irabel_area_entered(area: Area2D) -> void:
 	print ("something entered irabel area")
 	if area.is_in_group("enemy_damage"):
+		_player_takes_damage(area)
+	pass # Replace with function body.
+
+func _player_takes_damage(area: Area2D):
+	if not player_is_invulnerable:
+		player_is_invulnerable = true
 		player_health -= 1
 		print("current health: ", player_health)
-	if player_health <= 0:
-		print ("irabel dead")
-	pass # Replace with function body.
+
+		# Apply knockback
+		var direction = (position - area.position).normalized()  # Get direction away from enemy
+		velocity = direction * KNOCKBACK_FORCE
+
+		# Flash effect
+		await flash_red()
+		
+		if player_health <= 0:
+			print("Irabel dead")
+			# Handle player death here
+
+		# Reset invulnerability after a short delay
+		await get_tree().create_timer(1.0).timeout  # Adjust delay as needed
+		player_is_invulnerable = false
+
+func flash_red():
+	var original_color = sprite_2d.modulate
+	sprite_2d.modulate = FLASH_COLOR
+	await get_tree().create_timer(FLASH_TIME).timeout
+	sprite_2d.modulate = original_color

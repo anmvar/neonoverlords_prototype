@@ -1,17 +1,16 @@
 extends Control
 
+
+
+
 var game_paused = false
 
 func _ready():   
 	self.hide()
-
-	pass
+pass
 	
 func _process(float) -> void:
 	toggle_pause()
-	#print("Game paused state: ", game_paused)
-	#print("Tree paused state before setting: ", get_tree().paused)
-	
 	if game_paused:
 		self.show()
 		get_tree().paused = true
@@ -31,3 +30,4 @@ func toggle_pause():
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
 	pass #
+	

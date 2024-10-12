@@ -108,10 +108,10 @@ tracks/3/path = NodePath("Area2D2/Hitbox_PurpleMob:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.08, 0.81),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.08, 0.81, 0.945578),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [true, false]
+"values": [true, false, true]
 }
 
 [sub_resource type="Animation" id="Animation_5qfvb"]

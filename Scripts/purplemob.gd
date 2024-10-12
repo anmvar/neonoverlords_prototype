@@ -62,7 +62,7 @@ func _on_move_timer_timeout() -> void:
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("hurtbox") and not enemy_dead: 
 		enemy_dead = true
-		emit_signal("enemy_died",position)
+		#emit_signal("enemy_died",position)
 		enemy_manager.increase_kill_count() 
 		queue_free()
 	pass # Replace with function body.
@@ -88,6 +88,4 @@ func _on_aggro_area_area_entered(area: Area2D) -> void:
 	print("mob sees player")
 	pass # Replace with function body.
 
-#func attack_player():
-	#$PurpleMob_AnimationPlayer.play("purplemob_attack")
-	#pass
+#f

@@ -112,10 +112,28 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 theme_override_colors/font_color = Color(0.537255, 0.815686, 0.180392, 1)
-theme_override_colors/font_outline_color = Color(0.750342, 0.182935, 0.151305, 1)
+theme_override_colors/font_outline_color = Color(0.109804, 0, 0.0352941, 1)
+theme_override_constants/outline_size = 7
 theme_override_fonts/font = ExtResource("3_nks1l")
 theme_override_font_sizes/font_size = 24
 text = "Mobs Slain: "
+
+[node name="HealthCountLabel" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = 427.0
+offset_right = 190.0
+offset_bottom = 450.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.537255, 0.815686, 0.180392, 1)
+theme_override_colors/font_outline_color = Color(0.12958, 0.170237, 0.0579775, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("3_nks1l")
+theme_override_font_sizes/font_size = 24
+text = "Health Left:"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]

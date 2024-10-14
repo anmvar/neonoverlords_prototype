@@ -1,19 +1,33 @@
 extends Node
+
+
+
 var enemy_scene = preload("res://purple_enemy.tscn")#.instantiate()  # Path to your enemy scene
 @onready var kill_count_label: Label = $CanvasLayer/Control/KillCountLabel
+@onready var health_count_label: Label = $CanvasLayer/Control/HealthCountLabel  # Reference to the health label
+
 
 func _ready():  
+	
 	print("spawn on")
 	var timer = $Timer
 	print("Timer node:", timer) 
 	timer.stop()
 	timer.start()  
 	print("Timer started:", timer.is_stopped()) 
+	
+	#update enemy kill count
 	enemy_manager.connect("kill_count_updated", Callable(self, "_on_kill_count_updated"))
+	enemy_manager.kill_count = 0
+	
+	#show health count on the UI
+	health_count_label.text = "Health Left: " + str($Player.player_health)
+	
 	$Player/Camera2D/MusicPlayer.play()
 	pass
 	
 func _process(float) -> void:
+	
 	pass
 	
 func _on_timer_timeout():
@@ -31,13 +45,21 @@ func spawn_enemy():  # Instance the enemy scene
 	print("Connected enemy_died signal to _on_enemy_died")
 	pass
 	
-func _on_enemy_died(position):
+func _on_enemy_died(position): #detects when an enemy dies
 	print("Enemy died at position: ", position) 
 	print("kill count: ", enemy_manager.kill_count)
 	pass
 
-func _on_kill_count_updated(count):
+func _on_kill_count_updated(count): #depends on _on_enemy_died to print UI statement, check enemy_manager.gd script
 	kill_count_label.text = "Mobs Slain: " + str(count)
+	pass
+	
+	
+func update_health_display(new_health: int):
+	health_count_label.text = "Health Left: " + str(new_health)
+	if new_health <= 0:
+		health_count_label.modulate = Color(0.5, 0.5, 0.5)  # Grayout effect
+		# Optionally trigger game over here if not handled in player script
 	pass
 
 func _on_start_timer_timeout() -> void:

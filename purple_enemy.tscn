@@ -208,7 +208,7 @@ _data = {
 radius = 6.18852
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m7xqn"]
-size = Vector2(45.4675, 20.0446)
+size = Vector2(38.4246, 20.0446)
 
 [node name="PurpleMob" type="CharacterBody2D"]
 position = Vector2(2, -81)
@@ -224,6 +224,26 @@ texture = ExtResource("2_dngh0")
 hframes = 6
 region_enabled = true
 region_rect = Rect2(5, 0, 379, 48)
+
+[node name="PurpleMobBloodParticles" type="CPUParticles2D" parent="PurpleMob_Sprite2D"]
+position = Vector2(-6.65668, 15.8962)
+scale = Vector2(1.33333, 1.33333)
+emitting = false
+amount = 15
+one_shot = true
+speed_scale = 1.45
+emission_shape = 1
+emission_sphere_radius = 11.58
+spread = 33.1
+initial_velocity_min = 107.44
+initial_velocity_max = 115.71
+radial_accel_min = 6.61
+radial_accel_max = 8.26
+tangential_accel_min = 9.92
+tangential_accel_max = 11.97
+scale_amount_min = 0.0
+scale_amount_max = 9.27
+color = Color(1, 0.301961, 0.137255, 1)
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(3, 1)
@@ -266,7 +286,7 @@ scale = Vector2(0.75, 0.75)
 collision_layer = 2
 
 [node name="Hitbox_PurpleMob" type="CollisionShape2D" parent="Area2D2" groups=["enemy_damage"]]
-position = Vector2(-16.1662, 11.3544)
+position = Vector2(-11.4709, 11.3544)
 scale = Vector2(1.33333, 1.33333)
 shape = SubResource("RectangleShape2D_m7xqn")
 debug_color = Color(0.880435, 0.2693, 0.526381, 0.42)

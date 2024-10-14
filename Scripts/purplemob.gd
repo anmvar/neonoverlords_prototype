@@ -61,9 +61,15 @@ func _on_move_timer_timeout() -> void:
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("hurtbox") and not enemy_dead: 
+		var push_direction = (position - get_node("/root/Node/Player").position).normalized()
+		velocity += push_direction * 200  # Adjust the push strength as needed
+		$PurpleMob_Sprite2D/PurpleMobBloodParticles.emitting = true
 		enemy_dead = true
+		mob_sprite_2d.modulate = Color(1, 0, 0)  # Change to red
 		#emit_signal("enemy_died",position)
 		enemy_manager.increase_kill_count() 
+		
+		await get_tree().create_timer(0.25).timeout 
 		queue_free()
 	pass # Replace with function body.
 	

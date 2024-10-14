@@ -1,8 +1,5 @@
 extends CharacterBody2D
 
-signal player_hit
-
-
 var screen_size
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var sprite_2d = $Irabel_Sprite2D
@@ -24,9 +21,10 @@ func _ready():
 	pass
 
 func _process(_delta):
+	
 	if Input.is_action_just_pressed("attack_basic"):
 		$Irabel_AnimationPlayer.play("Irabel_basicattack")
-		
+	
 		print("attack")
 	if not $Irabel_AnimationPlayer.is_playing():
 		$Irabel_AnimationPlayer.play("irabel_idle")
@@ -60,7 +58,6 @@ func _physics_process(delta):
 			$Irabel_AnimationPlayer.play("irabel_idle")
 			
 	if Input.is_action_just_pressed("jump") or Input.is_action_just_released("jump") :
-			
 			$Irabel_AnimationPlayer.play("irabel_jump")
 
 	move_and_slide()
@@ -74,10 +71,6 @@ func _on_body_entered(body):
 	hide()
 	$CollisionShape2D.set_deferred("disabled",true)
 	pass
-
-func _on_player_hit() -> void:
-	
-	pass # Replace with function body.
 
 
 func _on_irabel_area_body_entered(body: CharacterBody2D) -> void:
@@ -96,21 +89,25 @@ func _player_takes_damage(area: Area2D):
 		player_is_invulnerable = true
 		player_health -= 1
 		print("current health: ", player_health)
+		
+		get_node("/root/Node").update_health_display(player_health)
 
-		# Apply knockback
-		var direction = (position - area.position).normalized()  # Get direction away from enemy
-		velocity = direction * KNOCKBACK_FORCE
-
+		## Apply knockback
+		#var direction = (position - area.position).normalized()  # Get direction away from enemy
+		#velocity = direction * KNOCKBACK_FORCE
+		
 		# Flash effect
 		await flash_red()
 		
-		if player_health <= 0:
-			print("Irabel dead")
-			# Handle player death here
-
 		# Reset invulnerability after a short delay
 		await get_tree().create_timer(1.0).timeout  # Adjust delay as needed
 		player_is_invulnerable = false
+		
+		if player_health <= 0:
+			print("Irabel dead")
+			get_tree().change_scene_to_file("res://Scenes/game_over_screen.tscn")
+		pass
+
 
 func flash_red():
 	var original_color = sprite_2d.modulate

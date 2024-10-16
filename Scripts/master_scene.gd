@@ -27,7 +27,11 @@ func _ready():
 	pass
 	
 func _process(float) -> void:
-	
+	if enemy_manager.kill_count >= 2:
+		await get_tree().create_timer(1.0).timeout 
+		get_tree().paused = true
+		var win_transition = preload("res://Scenes/game_won_screen.tscn")
+		get_tree().change_scene_to_packed(win_transition)
 	pass
 	
 func _on_timer_timeout():
@@ -39,7 +43,7 @@ func spawn_enemy():  # Instance the enemy scene
 	var enemy_instance = enemy_scene.instantiate()
 	
 	get_parent().add_child(enemy_instance) 
-	enemy_instance.position = Vector2(1000,200)
+	enemy_instance.position = Vector2(1184,320)
 	
 	enemy_instance.connect("enemy_died", Callable(self, "_on_enemy_died"))
 	print("Connected enemy_died signal to _on_enemy_died")
@@ -48,10 +52,13 @@ func spawn_enemy():  # Instance the enemy scene
 func _on_enemy_died(position): #detects when an enemy dies
 	print("Enemy died at position: ", position) 
 	print("kill count: ", enemy_manager.kill_count)
+	
+	
 	pass
 
 func _on_kill_count_updated(count): #depends on _on_enemy_died to print UI statement, check enemy_manager.gd script
 	kill_count_label.text = "Mobs Slain: " + str(count)
+	
 	pass
 	
 	
@@ -67,4 +74,8 @@ func _on_start_timer_timeout() -> void:
 	
 
 func _on_quit_button_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_main_title_button_pressed() -> void:
 	pass # Replace with function body.

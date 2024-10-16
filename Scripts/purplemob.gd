@@ -11,13 +11,14 @@ var speed = 150  # Speed of the enemy
 var distance = 100  # Distance to move back and forth
 var direction = 1.0  # Current moving direction  # Timer to track movement time
 var start_position: Vector2  # The starting position of the enemy
-var leap_speed = 400
+var leap_speed = 300
 var mob_is_attacking = false
 var enemy_dead = false
 # Called when the node enters the scene tree for the first time.
 
 func _ready():
 	start_position = position 
+	
 	if not $PurpleMob_AnimationPlayer.is_playing():
 		$PurpleMob_AnimationPlayer.play("purplemob_idle")
 	

@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://be2nu5as08d7p" path="res://assetts/UI/saiba-45/SAIBA-45.ttf" id="3_nks1l"]
 [ext_resource type="PackedScene" uid="uid://80ij5vnhkgl3" path="res://purple_enemy.tscn" id="5_tdaby"]
 [ext_resource type="PackedScene" uid="uid://lsv6ntilm41i" path="res://terrain.tscn" id="5_xufd1"]
-[ext_resource type="Script" path="res://pause_screen.gd" id="6_hq8mc"]
+[ext_resource type="Script" path="res://Scripts/pause_screen.gd" id="6_hq8mc"]
 [ext_resource type="AudioStream" uid="uid://dt1og23kfcmtl" path="res://assetts/audio/Music/NeonOverlordsDemo1.ogg" id="7_m0kho"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pbuto"]
@@ -45,6 +45,7 @@ position = Vector2(572, 376)
 
 [node name="PauseScreen" type="Control" parent="CanvasLayer"]
 process_mode = 3
+visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -101,6 +102,17 @@ theme_override_fonts/font = ExtResource("3_nks1l")
 theme_override_font_sizes/font_size = 13
 text = "Quit to Desktop"
 
+[node name="MainTitleButton" type="Button" parent="CanvasLayer/PauseScreen"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 365.0
+offset_right = 174.0
+offset_bottom = 396.0
+theme_override_colors/font_hover_pressed_color = Color(0.865481, 0.686824, 0.314595, 1)
+theme_override_fonts/font = ExtResource("3_nks1l")
+theme_override_font_sizes/font_size = 13
+text = "Go to Title Screen"
+
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 0
@@ -139,3 +151,4 @@ text = "Health Left:"
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
 [connection signal="pressed" from="CanvasLayer/PauseScreen/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PauseScreen/QuitButton" to="CanvasLayer/PauseScreen" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/PauseScreen/MainTitleButton" to="CanvasLayer/PauseScreen" method="_on_main_title_button_pressed"]

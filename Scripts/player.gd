@@ -6,10 +6,10 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var player_health = 3
 var player_is_invulnerable = false
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const SPEED = 350.0
+const JUMP_VELOCITY = -450.0
 const KNOCKBACK_FORCE = 500
-const FLASH_TIME = 0.1  # Duration of flash
+const FLASH_TIME = 0.2  # Duration of flash
 const FLASH_COLOR = Color(1, 0, 0)  # Red color for flash
 
 @export var sprite = Sprite2D
@@ -31,6 +31,7 @@ func _process(_delta):
 
 func _physics_process(delta):
 	velocity.x = 0
+
 	
 	if not is_on_floor():
 		
@@ -88,13 +89,10 @@ func _player_takes_damage(area: Area2D):
 	if not player_is_invulnerable:
 		player_is_invulnerable = true
 		player_health -= 1
+		
 		print("current health: ", player_health)
 		
 		get_node("/root/Node").update_health_display(player_health)
-
-		## Apply knockback
-		#var direction = (position - area.position).normalized()  # Get direction away from enemy
-		#velocity = direction * KNOCKBACK_FORCE
 		
 		# Flash effect
 		await flash_red()
@@ -105,7 +103,11 @@ func _player_takes_damage(area: Area2D):
 		
 		if player_health <= 0:
 			print("Irabel dead")
+			await get_tree().create_timer(0.25).timeout 
+			get_tree().paused = true
 			get_tree().change_scene_to_file("res://Scenes/game_over_screen.tscn")
+		
+		
 		pass
 
 

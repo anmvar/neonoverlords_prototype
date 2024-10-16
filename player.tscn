@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bxioim6taltal"]
+[gd_scene load_steps=27 format=3 uid="uid://bxioim6taltal"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_up5pe"]
 [ext_resource type="Texture2D" uid="uid://b02i2wthqq4l4" path="res://assetts/animations/Irabel_attack_modif-Sheet.png" id="2_svoo7"]
@@ -11,7 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://b2v0vsdsow8ko" path="res://assetts/audio/FX/walk.wav" id="8_ywbg5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ghsao"]
-size = Vector2(50.9387, 46.2609)
+size = Vector2(65.7505, 57.2447)
 
 [sub_resource type="Curve" id="Curve_3v247"]
 min_value = -360.0
@@ -19,11 +19,19 @@ max_value = 360.0
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="Curve" id="Curve_w4oa7"]
-min_value = -500.0
-max_value = 500.0
-_data = [Vector2(0.0727969, 76.3116), 0.0, 0.0, 0, 0, Vector2(0.187739, 148.649), 0.0, 0.0, 0, 0, Vector2(0.659004, 200.318), 0.0, 0.0, 0, 0, Vector2(0.984674, -461.049), 0.0, 0.0, 0, 0]
+[sub_resource type="Curve" id="Curve_uifq3"]
+min_value = 0.25
+max_value = 1.75
+_data = [Vector2(0.0630631, 1.14011), 0.0, 0.0, 0, 0, Vector2(0.265766, 1.10714), 0.0, 0.0, 0, 0, Vector2(0.490991, 0.909341), 0.0, 0.0, 0, 0, Vector2(0.90991, 1.60165), 0.0, 0.0, 0, 0]
 point_count = 4
+
+[sub_resource type="Gradient" id="Gradient_nr15j"]
+offsets = PackedFloat32Array(0.360825, 0.963918)
+colors = PackedColorArray(0.635294, 0.945098, 0.133333, 1, 0.129412, 0.870588, 0.0588235, 1)
+
+[sub_resource type="Gradient" id="Gradient_aorsg"]
+offsets = PackedFloat32Array(0.283505, 1)
+colors = PackedColorArray(0, 0.886275, 0, 1, 1, 1, 0.364706, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8v4ok"]
 size = Vector2(16.7444, 47.4087)
@@ -455,7 +463,7 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="Irabelattack_CollisionShape2D" type="CollisionShape2D" parent="Irabel_Sprite2D/Irabelattack_Area2D"]
-position = Vector2(3.26531, 1.34458)
+position = Vector2(10.5895, 5.78313)
 scale = Vector2(0.988967, 0.808196)
 shape = SubResource("RectangleShape2D_ghsao")
 disabled = true
@@ -464,23 +472,36 @@ debug_color = Color(0.904642, 0.245813, 0.467424, 0.42)
 [node name="JumpParticles" type="CPUParticles2D" parent="Irabel_Sprite2D"]
 position = Vector2(4.57143, 5.20481)
 scale = Vector2(0.653061, 0.578312)
-amount = 2
-lifetime = 0.5
+amount = 12
+lifetime = 0.9
 local_coords = true
 direction = Vector2(1, 1)
-spread = 50.0
-gravity = Vector2(0, 900)
-initial_velocity_max = 2.0
+spread = 33.63
+initial_velocity_min = 35.36
+initial_velocity_max = 35.36
+angular_velocity_min = -47.85
+angular_velocity_max = 130.91
 angular_velocity_curve = SubResource("Curve_3v247")
-orbit_velocity_min = 1.0
-orbit_velocity_max = 3.0
-orbit_velocity_curve = SubResource("Curve_w4oa7")
-angle_min = 390.9
-angle_max = 390.9
-scale_amount_max = 3.0
+orbit_velocity_min = -16.53
+orbit_velocity_max = 314.8
+orbit_velocity_curve = SubResource("Curve_uifq3")
+linear_accel_min = 14.88
+linear_accel_max = 47.93
+radial_accel_min = -11.1
+radial_accel_max = 21.49
+tangential_accel_min = -9.92
+tangential_accel_max = 13.57
+damping_min = 13.223
+damping_max = 28.925
+angle_min = -428.4
+angle_max = 173.5
+scale_amount_min = 3.0
+scale_amount_max = 4.0
 color = Color(0.458824, 1, 0.360784, 1)
-hue_variation_min = 0.09
-hue_variation_max = 0.28
+color_ramp = SubResource("Gradient_nr15j")
+color_initial_ramp = SubResource("Gradient_aorsg")
+hue_variation_min = 0.35
+hue_variation_max = 0.81
 
 [node name="Irabel_CollisionShape2D" type="CollisionShape2D" parent="." groups=["player"]]
 position = Vector2(5, 5)

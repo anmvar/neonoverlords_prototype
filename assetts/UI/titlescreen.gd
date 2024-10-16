@@ -18,13 +18,13 @@ func _on_start_game() -> void:
 	pass # Replace with function body.
 
 func _on_start_button_pressed() -> void:
-	$StartButton.hide()
+	$Control/StartButton.hide()
 	get_tree().change_scene_to_file("res://master_scene.tscn")
 	start_game.emit()
 	pass # Replace with function body.
 	
 func _on_gen_timer_timeout() -> void:
-	$GenMessage.hide()
+	$Control/GenMessage.hide()
 	pass # Replace with function body.
 
 func _on_exit_button_pressed() -> void:
@@ -33,5 +33,5 @@ func _on_exit_button_pressed() -> void:
 
 
 func _on_popup_menu_pressed() -> void:
-	$PopupMenu/OptionsMenu.visible = not $PopupMenu/OptionsMenu.visible
+	$Control/PopupMenu/OptionsMenu.visible = not $Control/PopupMenu/OptionsMenu.visible
 	pass # Replace with function body.

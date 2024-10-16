@@ -27,7 +27,7 @@ func _ready():
 	pass
 	
 func _process(float) -> void:
-	if enemy_manager.kill_count >= 2:
+	if enemy_manager.kill_count >= 10:
 		get_tree().paused = true
 		await get_tree().create_timer(1.0).timeout 
 		var win_transition = preload("res://Scenes/game_won_screen.tscn")

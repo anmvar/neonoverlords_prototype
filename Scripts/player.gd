@@ -89,6 +89,7 @@ func _player_takes_damage(area: Area2D):
 	if not player_is_invulnerable:
 		player_is_invulnerable = true
 		player_health -= 1
+		$Irabel_hurt.play()
 		
 		print("current health: ", player_health)
 		
@@ -98,7 +99,7 @@ func _player_takes_damage(area: Area2D):
 		await flash_red()
 		
 		# Reset invulnerability after a short delay
-		await get_tree().create_timer(1.0).timeout  # Adjust delay as needed
+		await get_tree().create_timer(1.0).timeout 
 		player_is_invulnerable = false
 		
 		if player_health <= 0:

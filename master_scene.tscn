@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dyjbml4hmqtxu"]
+[gd_scene load_steps=11 format=3 uid="uid://dyjbml4hmqtxu"]
 
 [ext_resource type="Script" path="res://Scripts/master_scene.gd" id="1_1ltg8"]
 [ext_resource type="PackedScene" uid="uid://bxioim6taltal" path="res://player.tscn" id="1_8kqm7"]
+[ext_resource type="Texture2D" uid="uid://duxwyty6qycfx" path="res://assetts/UI/logoexperiments/pixelified/pxArt (7).png" id="2_6lrrg"]
 [ext_resource type="FontFile" uid="uid://be2nu5as08d7p" path="res://assetts/UI/saiba-45/SAIBA-45.ttf" id="3_nks1l"]
 [ext_resource type="PackedScene" uid="uid://80ij5vnhkgl3" path="res://purple_enemy.tscn" id="5_tdaby"]
 [ext_resource type="PackedScene" uid="uid://lsv6ntilm41i" path="res://terrain.tscn" id="5_xufd1"]
@@ -13,6 +14,12 @@
 
 [node name="Node" type="Node2D"]
 script = ExtResource("1_1ltg8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.488416, 0.348333, 0.291674, 1)
+position = Vector2(770, 297)
+scale = Vector2(1.09395, 0.553877)
+texture = ExtResource("2_6lrrg")
 
 [node name="Player" parent="." instance=ExtResource("1_8kqm7")]
 position = Vector2(90, 284)
@@ -39,8 +46,20 @@ collision_visibility_mode = 0
 wait_time = 2.0
 one_shot = true
 
+[node name="PurpleMob3" parent="." instance=ExtResource("5_tdaby")]
+position = Vector2(862, 501)
+
 [node name="PurpleMob" parent="." instance=ExtResource("5_tdaby")]
 position = Vector2(572, 376)
+
+[node name="PurpleMob5" parent="." instance=ExtResource("5_tdaby")]
+position = Vector2(411, 238)
+
+[node name="PurpleMob2" parent="." instance=ExtResource("5_tdaby")]
+position = Vector2(96, 376)
+
+[node name="PurpleMob4" parent="." instance=ExtResource("5_tdaby")]
+position = Vector2(348, 510)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

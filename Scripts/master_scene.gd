@@ -28,8 +28,8 @@ func _ready():
 	
 func _process(float) -> void:
 	if enemy_manager.kill_count >= 2:
-		await get_tree().create_timer(1.0).timeout 
 		get_tree().paused = true
+		await get_tree().create_timer(1.0).timeout 
 		var win_transition = preload("res://Scenes/game_won_screen.tscn")
 		get_tree().change_scene_to_packed(win_transition)
 	pass

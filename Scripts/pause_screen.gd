@@ -32,3 +32,8 @@ func _on_quit_button_pressed() -> void:
 func _on_main_title_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://titlescreen.tscn")
 	pass # Replace with function body.
+
+
+func _on_popup_menu_pressed() -> void:
+	$PopupMenu/OptionsMenu.visible = not $PopupMenu/OptionsMenu.visible
+	pass

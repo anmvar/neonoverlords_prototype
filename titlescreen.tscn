@@ -1,10 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://mu7jw16258m5"]
+[gd_scene load_steps=4 format=3 uid="uid://mu7jw16258m5"]
 
 [ext_resource type="Script" path="res://assetts/UI/titlescreen.gd" id="1_twwbh"]
 [ext_resource type="FontFile" uid="uid://be2nu5as08d7p" path="res://assetts/UI/saiba-45/SAIBA-45.ttf" id="2_nkw38"]
+[ext_resource type="PackedScene" uid="uid://bv787lgvwyfvx" path="res://Scenes/options_menu.tscn" id="3_hw2h7"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_twwbh")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -1.0
+offset_top = 11.0
+offset_right = 403.0
+offset_bottom = 525.0
 
 [node name="StartButton" type="Button" parent="."]
 anchors_preset = 8
@@ -70,6 +77,24 @@ autowrap_mode = 2
 wait_time = 2.0
 one_shot = true
 
+[node name="PopupMenu" type="MenuButton" parent="."]
+offset_left = 87.0
+offset_top = 307.0
+offset_right = 323.0
+offset_bottom = 329.0
+theme_override_fonts/font = ExtResource("2_nkw38")
+text = "menu for audio settings"
+
+[node name="OptionsMenu" parent="PopupMenu" instance=ExtResource("3_hw2h7")]
+visible = false
+layout_mode = 1
+offset_left = -53.0
+offset_top = 76.0
+offset_right = 94.0
+offset_bottom = 107.0
+scale = Vector2(0.659291, 0.658404)
+
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Exit Button" to="." method="_on_exit_button_pressed"]
 [connection signal="timeout" from="GenTimer" to="." method="_on_gen_timer_timeout"]
+[connection signal="pressed" from="PopupMenu" to="." method="_on_popup_menu_pressed"]

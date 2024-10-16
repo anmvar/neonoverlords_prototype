@@ -1,0 +1,101 @@
+[gd_scene load_steps=3 format=3 uid="uid://bv787lgvwyfvx"]
+
+[ext_resource type="Script" path="res://Scripts/options_menu.gd" id="1_m2k5w"]
+[ext_resource type="FontFile" uid="uid://be2nu5as08d7p" path="res://assetts/UI/saiba-45/SAIBA-45.ttf" id="2_i8101"]
+
+[node name="OptionsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.5
+offset_top = -15.5
+offset_right = 73.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m2k5w")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -128.5
+offset_top = -239.5
+offset_right = 275.5
+offset_bottom = 274.5
+
+[node name="AudioMenu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -90.0
+offset_right = -56.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.53428, 1.47091)
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="AudioMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.587
+anchor_top = 0.35
+anchor_right = 1.587
+anchor_bottom = 0.35
+offset_left = -54.98
+offset_top = -12.5
+offset_right = 57.02
+offset_bottom = 10.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_i8101")
+text = "Audio Settings"
+
+[node name="AudioMenuVBox" type="VBoxContainer" parent="AudioMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.033
+offset_left = 15.0
+offset_top = 31.0
+offset_right = 114.68
+offset_bottom = 159.0
+
+[node name="MasterVol" type="Label" parent="AudioMenu/AudioMenuVBox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_i8101")
+text = "MasterVol
+"
+
+[node name="MasterVolSlider" type="HSlider" parent="AudioMenu/AudioMenuVBox"]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+
+[node name="MusicSettings" type="Label" parent="AudioMenu/AudioMenuVBox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_i8101")
+text = "Music"
+
+[node name="MusicVolSlider" type="HSlider" parent="AudioMenu/AudioMenuVBox"]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+
+[node name="Effects" type="Label" parent="AudioMenu/AudioMenuVBox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_i8101")
+text = "Effects"
+
+[node name="EffectsVolSlider" type="HSlider" parent="AudioMenu/AudioMenuVBox"]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+
+[connection signal="value_changed" from="AudioMenu/AudioMenuVBox/MasterVolSlider" to="." method="_on_master_vol_slider_value_changed"]
+[connection signal="value_changed" from="AudioMenu/AudioMenuVBox/MusicVolSlider" to="." method="_on_music_vol_slider_value_changed"]
+[connection signal="value_changed" from="AudioMenu/AudioMenuVBox/EffectsVolSlider" to="." method="_on_effects_vol_slider_value_changed"]

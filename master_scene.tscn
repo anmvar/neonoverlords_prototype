@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dyjbml4hmqtxu"]
+[gd_scene load_steps=10 format=3 uid="uid://dyjbml4hmqtxu"]
 
 [ext_resource type="Script" path="res://Scripts/master_scene.gd" id="1_1ltg8"]
 [ext_resource type="PackedScene" uid="uid://bxioim6taltal" path="res://player.tscn" id="1_8kqm7"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://lsv6ntilm41i" path="res://terrain.tscn" id="5_xufd1"]
 [ext_resource type="Script" path="res://Scripts/pause_screen.gd" id="6_hq8mc"]
 [ext_resource type="AudioStream" uid="uid://dt1og23kfcmtl" path="res://assetts/audio/Music/NeonOverlordsDemo1.ogg" id="7_m0kho"]
+[ext_resource type="PackedScene" uid="uid://bv787lgvwyfvx" path="res://Scenes/options_menu.tscn" id="8_gmqsd"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pbuto"]
 
@@ -45,7 +46,6 @@ position = Vector2(572, 376)
 
 [node name="PauseScreen" type="Control" parent="CanvasLayer"]
 process_mode = 3
-visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -61,6 +61,14 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("6_hq8mc")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/PauseScreen"]
+layout_mode = 0
+offset_left = -236.0
+offset_top = 3.00018
+offset_right = -196.0
+offset_bottom = 43.0002
+scale = Vector2(18.7402, 15.6444)
 
 [node name="GamePaused" type="Label" parent="CanvasLayer/PauseScreen"]
 z_index = 1
@@ -83,14 +91,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="Panel" type="Panel" parent="CanvasLayer/PauseScreen/GamePaused"]
-layout_mode = 0
-offset_left = -139.0
-offset_top = -285.308
-offset_right = -99.0
-offset_bottom = -245.308
-scale = Vector2(18.7402, 15.6444)
-
 [node name="QuitButton" type="Button" parent="CanvasLayer/PauseScreen"]
 layout_mode = 0
 offset_left = 33.0
@@ -112,6 +112,24 @@ theme_override_colors/font_hover_pressed_color = Color(0.865481, 0.686824, 0.314
 theme_override_fonts/font = ExtResource("3_nks1l")
 theme_override_font_sizes/font_size = 13
 text = "Go to Title Screen"
+
+[node name="PopupMenu" type="MenuButton" parent="CanvasLayer/PauseScreen"]
+layout_mode = 0
+offset_left = -13.0
+offset_top = 399.0
+offset_right = 223.0
+offset_bottom = 421.0
+theme_override_fonts/font = ExtResource("3_nks1l")
+text = "menu for audio settings"
+
+[node name="OptionsMenu" parent="CanvasLayer/PauseScreen/PopupMenu" instance=ExtResource("8_gmqsd")]
+visible = false
+layout_mode = 1
+offset_left = -73.0
+offset_top = -266.0
+offset_right = 74.0
+offset_bottom = -235.0
+scale = Vector2(0.903022, 0.788522)
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -152,3 +170,4 @@ text = "Health Left:"
 [connection signal="pressed" from="CanvasLayer/PauseScreen/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PauseScreen/QuitButton" to="CanvasLayer/PauseScreen" method="_on_quit_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PauseScreen/MainTitleButton" to="CanvasLayer/PauseScreen" method="_on_main_title_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/PauseScreen/PopupMenu" to="CanvasLayer/PauseScreen" method="_on_popup_menu_pressed"]

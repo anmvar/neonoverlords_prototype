@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bxioim6taltal"]
+[gd_scene load_steps=29 format=3 uid="uid://bxioim6taltal"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_up5pe"]
 [ext_resource type="Texture2D" uid="uid://b02i2wthqq4l4" path="res://assetts/animations/Irabel_attack_modif-Sheet.png" id="2_svoo7"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://dmon1a5jdyq6m" path="res://assetts/audio/FX/jump.wav" id="8_m3nr8"]
 [ext_resource type="AudioStream" uid="uid://b2v0vsdsow8ko" path="res://assetts/audio/FX/walk.wav" id="8_ywbg5"]
 [ext_resource type="AudioStream" uid="uid://bcsbu6n1dj1i5" path="res://assetts/audio/FX/irabelhurt.wav" id="10_ch1ir"]
+[ext_resource type="AudioStream" uid="uid://dqqens41v3g5j" path="res://assetts/audio/FX/lowhealth.wav" id="10_evg6e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ghsao"]
 size = Vector2(65.7505, 57.2447)
@@ -545,6 +546,12 @@ volume_db = -1.513
 pitch_scale = 0.57
 attenuation = 2.63902
 bus = &"Movement"
+
+[node name="Irabel_lowhealth" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_evg6e")
+volume_db = -9.318
+bus = &"SoundFX"
+playback_type = 1
 
 [node name="Irabel_hurt" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_ch1ir")

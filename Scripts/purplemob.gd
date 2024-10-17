@@ -28,11 +28,12 @@ func _ready():
 	pass 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	
 	if mob_is_attacking:
-		# Move towards the player during the attack
-		var player_position = get_node("/root/Node/Player").position  # Change to your player's node path
-		var direction_to_player = (player_position - position).normalized()
-		velocity = direction_to_player * leap_speed
+		if get_node("/root/Node/Player") != null:
+			var player_position = get_node("/root/Node/Player").position  # Change to your player's node path
+			var direction_to_player = (player_position - position).normalized()
+			velocity = direction_to_player * leap_speed
 	else:
 		if velocity.x != 0 and $PurpleMob_AnimationPlayer.get_current_animation() != "purplemob_attack":
 			$PurpleMob_AnimationPlayer.play("purplemob_walk")
@@ -62,8 +63,9 @@ func _on_move_timer_timeout() -> void:
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("hurtbox") and not enemy_dead: 
-		var push_direction = (position - get_node("/root/Node/Player").position).normalized()
-		velocity += push_direction * 200  # Adjust the push strength as needed
+		#var push_direction = (position - get_node("/root/Node/Player").position).normalized()
+		$MobDeathSound.play()
+		#velocity += push_direction * 200  # Adjust the push strength as needed
 		$PurpleMob_Sprite2D/PurpleMobBloodParticles.emitting = true
 		enemy_dead = true
 		mob_sprite_2d.modulate = Color(1, 0, 0)  # Change to red

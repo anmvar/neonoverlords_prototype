@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://80ij5vnhkgl3"]
+[gd_scene load_steps=15 format=3 uid="uid://80ij5vnhkgl3"]
 
 [ext_resource type="Script" path="res://Scripts/purplemob.gd" id="1_maf0k"]
 [ext_resource type="Texture2D" uid="uid://cj4g4h1kp0inu" path="res://assetts/animations/enemies/purple_mob/enemy_idle-Sheet.png" id="2_dngh0"]
 [ext_resource type="Texture2D" uid="uid://ceq5b8ye7ggwt" path="res://assetts/animations/enemies/purple_mob/enemy_walk-Sheet.png" id="3_d0lib"]
 [ext_resource type="Texture2D" uid="uid://bor5asq6ljn5g" path="res://assetts/animations/enemies/purple_mob/enemy_attack-Sheet.png" id="4_lfs1x"]
+[ext_resource type="AudioStream" uid="uid://bt228ksb27j5w" path="res://assetts/audio/FX/Monsterdeath.ogg" id="5_48epa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a1y58"]
 size = Vector2(40.8911, 23.3603)
@@ -290,6 +291,12 @@ position = Vector2(-11.4709, 11.3544)
 scale = Vector2(1.33333, 1.33333)
 shape = SubResource("RectangleShape2D_m7xqn")
 debug_color = Color(0.880435, 0.2693, 0.526381, 0.42)
+
+[node name="MobDeathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_48epa")
+volume_db = -1.625
+pitch_scale = 0.96
+bus = &"Impacts"
 
 [connection signal="enemy_died" from="." to="." method="_on_enemy_died"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

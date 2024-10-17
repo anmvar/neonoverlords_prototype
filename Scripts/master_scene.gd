@@ -28,6 +28,7 @@ func _ready():
 	
 func _process(float) -> void:
 	if enemy_manager.kill_count >= 10:
+		$CanvasLayer/Control/GameWonMessage.show()
 		get_tree().paused = true
 		await get_tree().create_timer(1.0).timeout 
 		var win_transition = preload("res://Scenes/game_won_screen.tscn")
@@ -64,7 +65,11 @@ func _on_kill_count_updated(count): #depends on _on_enemy_died to print UI state
 	
 func update_health_display(new_health: int):
 	health_count_label.text = "Health Left: " + str(new_health)
+	if new_health <= 1:
+		health_count_label.modulate = Color(1, 0.5, 0.5)
 	if new_health <= 0:
+		health_count_label.text = "RIPERONI" + str(new_health)
+		$CanvasLayer/Control/GameLostMessage.show()
 		health_count_label.modulate = Color(0.5, 0.5, 0.5)  # Grayout effect
 		# Optionally trigger game over here if not handled in player script
 	pass

@@ -1,10 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://bjh75viiadltw"]
+[gd_scene load_steps=4 format=3 uid="uid://bjh75viiadltw"]
 
-[ext_resource type="Script" path="res://Scripts/game_over_screen.gd" id="1_h8ufm"]
+[ext_resource type="Script" path="res://Scripts/game_won_screen.gd" id="1_tjl18"]
 [ext_resource type="FontFile" uid="uid://be2nu5as08d7p" path="res://assetts/UI/saiba-45/SAIBA-45.ttf" id="2_1qdqj"]
+[ext_resource type="AudioStream" uid="uid://xv54f2y75s53" path="res://assetts/audio/Music/Won.ogg" id="3_x5ti6"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
-script = ExtResource("1_h8ufm")
+script = ExtResource("1_tjl18")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -81,18 +82,24 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 90.0
-offset_top = 145.0
-offset_right = 271.0
-offset_bottom = 174.0
+offset_left = 22.0
+offset_top = 114.0
+offset_right = 340.0
+offset_bottom = 164.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0.882353, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0.301961, 0, 1)
+theme_override_constants/shadow_offset_x = 9
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 2
 theme_override_fonts/font = ExtResource("2_1qdqj")
-theme_override_font_sizes/font_size = 37
+theme_override_font_sizes/font_size = 68
 text = "You won!"
 
-[node name="GameWonLabel2" type="Label" parent="Control"]
+[node name="CreditsLabel" type="Label" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -112,6 +119,12 @@ BY
 aNDRES m"
 horizontal_alignment = 1
 autowrap_mode = 2
+
+[node name="WonMusicPlayer" type="AudioStreamPlayer2D" parent="Control"]
+position = Vector2(41, 360)
+stream = ExtResource("3_x5ti6")
+volume_db = -2.787
+bus = &"Music"
 
 [connection signal="pressed" from="Control/RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="Control/QuitToDesktopButton" to="." method="_on_quit_to_desktop_button_pressed"]

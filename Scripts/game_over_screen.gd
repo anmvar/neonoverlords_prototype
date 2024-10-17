@@ -8,6 +8,7 @@ func _ready() -> void:
 	print("Script attached:", get_tree().current_scene.get_script())
 	await get_tree().create_timer(1.0).timeout 
 	get_tree().paused = false
+	$LostMusicPlayer.play()
 	pass # Replace with function body.
 
 

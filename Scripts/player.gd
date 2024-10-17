@@ -24,10 +24,11 @@ func _process(_delta):
 	
 	if Input.is_action_just_pressed("attack_basic"):
 		$Irabel_AnimationPlayer.play("Irabel_basicattack")
-	
 		print("attack")
+		
 	if not $Irabel_AnimationPlayer.is_playing():
 		$Irabel_AnimationPlayer.play("irabel_idle")
+		
 
 func _physics_process(delta):
 	velocity.x = 0
@@ -94,20 +95,21 @@ func _player_takes_damage(area: Area2D):
 		print("current health: ", player_health)
 		
 		get_node("/root/Node").update_health_display(player_health)
-		
 		# Flash effect
 		await flash_red()
-		
 		# Reset invulnerability after a short delay
 		await get_tree().create_timer(1.0).timeout 
 		player_is_invulnerable = false
+		
+		if player_health <= 1:
+			$Irabel_lowhealth.play()
+			$Irabel_Sprite2D.modulate = Color(0.75, 0.2, 0)
 		
 		if player_health <= 0:
 			print("Irabel dead")
 			await get_tree().create_timer(0.25).timeout 
 			get_tree().paused = true
 			get_tree().change_scene_to_file("res://Scenes/game_over_screen.tscn")
-		
 		
 		pass
 

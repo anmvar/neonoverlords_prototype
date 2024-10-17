@@ -184,6 +184,42 @@ theme_override_fonts/font = ExtResource("3_nks1l")
 theme_override_font_sizes/font_size = 24
 text = "Health Left:"
 
+[node name="GameWonMessage" type="Label" parent="CanvasLayer/Control"]
+visible = false
+layout_mode = 0
+offset_left = 40.0
+offset_top = 192.0
+offset_right = 319.0
+offset_bottom = 247.0
+theme_override_colors/font_color = Color(0, 0.968627, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.176471, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 7
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_nks1l")
+theme_override_font_sizes/font_size = 32
+text = "You have slain 
+10 Enemies!"
+horizontal_alignment = 1
+
+[node name="GameLostMessage" type="Label" parent="CanvasLayer/Control"]
+visible = false
+layout_mode = 0
+offset_left = 40.0
+offset_top = 192.0
+offset_right = 319.0
+offset_bottom = 247.0
+theme_override_colors/font_color = Color(0.972793, 0.77484, 1.15514e-06, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.176471, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 7
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_nks1l")
+theme_override_font_sizes/font_size = 32
+text = "Your life is over
+Try again"
+horizontal_alignment = 1
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
 [connection signal="pressed" from="CanvasLayer/PauseScreen/QuitButton" to="." method="_on_quit_button_pressed"]

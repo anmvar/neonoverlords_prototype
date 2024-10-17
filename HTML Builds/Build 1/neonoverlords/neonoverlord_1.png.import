@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cr28aj5xn34dx"
-path="res://.godot/imported/neonoverlord_1.icon.png-d4fa27d3ebdfada076dbf265483f7fb4.ctex"
+uid="uid://ddjbe6q6jidk1"
+path="res://.godot/imported/neonoverlord_1.png-cac08a10dbb34a188297f14a5fdb139a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Build 1/neonoverlords/neonoverlord_1.icon.png"
-dest_files=["res://.godot/imported/neonoverlord_1.icon.png-d4fa27d3ebdfada076dbf265483f7fb4.ctex"]
+source_file="res://HTML Builds/Build 1/neonoverlords/neonoverlord_1.png"
+dest_files=["res://.godot/imported/neonoverlord_1.png-cac08a10dbb34a188297f14a5fdb139a.ctex"]
 
 [params]
 
